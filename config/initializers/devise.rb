@@ -1,6 +1,10 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+
+  # added this because of problems with application, the following error in logs: `raise_no_secret_key': Devise.secret_key was not set. Please add the following to your Devise initializer: (RuntimeError)
+  config.secret_key = '779f25996fe859023be658a91776f63fb29e4e7242f6ebe47320239273f790d323db37d65388dcf83e4fde10c6cebc92be3f5825c9339e4129130aebc3b14142' if Rails.env.production?
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
